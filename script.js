@@ -1,12 +1,11 @@
 $(document).ready(onReady);
 
-
 function onReady() {
   console.log("jquery loaded");
-  $(`.attack-btn arcane-scepter`).on(`click`, arcaneScepter);
-  $(`.attack-btn entangle`).on(`click`, entangle);
-  $(`.attack-btn dragon-blade`).on(`click`, dragonBlade);
-  $(`.attack-btn star-fire`).on(`click`, starFire);
+  $(`.arcane-scepter`).on(`click`, arcaneScepter);
+  $(`.entangle`).on(`click`, entangle);
+  $(`.dragon-blade`).on(`click`, dragonBlade);
+  $(`.star-fire`).on(`click`, starFire);
 }
 
 function arcaneScepter(event) {
