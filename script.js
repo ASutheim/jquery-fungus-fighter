@@ -1,18 +1,30 @@
 $(document).ready(onReady);
 
-// State Variables can be declared outside of the onReady
-// Feel free to make this to what you want!
-// Example:
-// let fungusHP = 100;
 
 function onReady() {
-    
-    // Make sure you check the index.html file! 
-    // There are lots of buttons and things ready for you to hook into here!
-    
-    
-    // 🧠 Remember
-    // - Handle events that ->
-    // - Updates state which is ->
-    // - Rendered to the DOM
+  console.log("jquery loaded");
+  $(`.attack-btn arcane-scepter`).on(`click`, arcaneScepter);
+  $(`.attack-btn entangle`).on(`click`, entangle);
+  $(`.attack-btn dragon-blade`).on(`click`, dragonBlade);
+  $(`.attack-btn star-fire`).on(`click`, starFire);
+}
+
+function arcaneScepter(event) {
+  event.preventDefault();
+  console.log("Arcane scepter activated!");
+}
+
+function entangle(event) {
+  event.preventDefault();
+  console.log("Entangle activated!");
+}
+
+function dragonBlade(event) {
+  event.preventDefault();
+  console.log("Dragon Blade activated!");
+}
+
+function starFire(event) {
+  event.preventDefault();
+  console.log("Star Fire activated!");
 }
