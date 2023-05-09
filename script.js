@@ -16,8 +16,6 @@ function arcaneScepter(event) {
   console.log("Arcane scepter activated!");
   attackPoints -= 12;
   healthPoints -= 14;
-  console.log("Attack Points:", attackPoints);
-  console.log("Health Points:", healthPoints);
   renderResult();
 }
 
@@ -26,8 +24,6 @@ function entangle(event) {
   console.log("Entangle activated!");
   attackPoints -= 23;
   healthPoints -= 9;
-  console.log("Attack Points:", attackPoints);
-  console.log("Health Points:", healthPoints);
   renderResult();
 }
 
@@ -36,8 +32,6 @@ function dragonBlade(event) {
   console.log("Dragon Blade activated!");
   attackPoints -= 38;
   healthPoints -= 47;
-  console.log("Attack Points:", attackPoints);
-  console.log("Health Points:", healthPoints);
   renderResult();
 }
 
@@ -46,33 +40,22 @@ function starFire(event) {
   console.log("Star Fire activated!");
   attackPoints -= 33;
   healthPoints -= 25;
-  console.log("Attack Points:", attackPoints);
-  console.log("Health Points:", healthPoints);
   renderResult();
 }
 
 function renderResult() {
   if (healthPoints <= 0) {
     healthPoints = 0;
+    $(".freaky-fungus").removeClass(".walk").addClass(".dead");
   }
   if (attackPoints <= 0) {
     attackPoints = 0;
+    $(".freaky-fungus").removeClass(".walk").addClass(".jump");
   }
+  console.log("Attack Points:", attackPoints);
+  console.log("Health Points:", healthPoints);
   $("#ap-meter").val(attackPoints);
   $(".ap-text").text(attackPoints);
   $("#hp-meter").val(healthPoints);
   $(".hp-text").text(healthPoints);
 }
-
-// function deadMushroom(healthPoints) {
-//   if (healthPoints <= 0) {
-//     $(".freaky-fungus").removeClass(".walk").addClass(".dead");
-//     console.log("You win!");
-//   }
-// }
-
-// function mushroomWins(attackPoints) {
-//   if (attackPoints <= 0) {
-//     $(".freaky-fungus").removeClass(".walk").addClass(".jump");
-//     console.log("Mushroom wins!");
-//   }
