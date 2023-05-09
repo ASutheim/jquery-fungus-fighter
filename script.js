@@ -20,6 +20,8 @@ function arcaneScepter(event) {
   console.log("Health Points:", healthPoints);
   $("#ap-meter.value").val(attackPoints);
   $("#hp-meter.value").val(healthPoints);
+  deadMushroom(healthPoints);
+  mushroomWins(attackPoints);
 }
 
 function entangle(event) {
@@ -31,6 +33,8 @@ function entangle(event) {
   console.log("Health Points:", healthPoints);
   $("#ap-meter.value").val(attackPoints);
   $("#hp-meter.value").val(healthPoints);
+  deadMushroom(healthPoints);
+  mushroomWins(attackPoints);
 }
 
 function dragonBlade(event) {
@@ -42,6 +46,8 @@ function dragonBlade(event) {
   console.log("Health Points:", healthPoints);
   $("#ap-meter.value").val(attackPoints);
   $("#hp-meter.value").val(healthPoints);
+  deadMushroom(healthPoints);
+  mushroomWins(attackPoints);
 }
 
 function starFire(event) {
@@ -53,4 +59,20 @@ function starFire(event) {
   console.log("Health Points:", healthPoints);
   $("#ap-meter.value").val(attackPoints);
   $("#hp-meter.value").val(healthPoints);
+  deadMushroom(healthPoints);
+  mushroomWins(attackPoints);
+}
+
+function deadMushroom(healthPoints) {
+  if (healthPoints <= 0) {
+    $(".freaky-fungus").removeClass(".walk").addClass(".dead");
+    console.log("You win!");
+  }
+}
+
+function mushroomWins(attackPoints) {
+  if (attackPoints <= 0) {
+    $(".freaky-fungus").removeClass(".walk").addClass(".jump");
+    console.log("Mushroom wins!");
+  }
 }
