@@ -18,10 +18,7 @@ function arcaneScepter(event) {
   healthPoints -= 14;
   console.log("Attack Points:", attackPoints);
   console.log("Health Points:", healthPoints);
-  $("#ap-meter.value").val(attackPoints);
-  $("#hp-meter.value").val(healthPoints);
-  deadMushroom(healthPoints);
-  mushroomWins(attackPoints);
+  renderResult();
 }
 
 function entangle(event) {
@@ -31,23 +28,17 @@ function entangle(event) {
   healthPoints -= 9;
   console.log("Attack Points:", attackPoints);
   console.log("Health Points:", healthPoints);
-  $("#ap-meter.value").val(attackPoints);
-  $("#hp-meter.value").val(healthPoints);
-  deadMushroom(healthPoints);
-  mushroomWins(attackPoints);
+  renderResult();
 }
 
 function dragonBlade(event) {
-  event.preventDefault();
+  //event.preventDefault();
   console.log("Dragon Blade activated!");
   attackPoints -= 38;
   healthPoints -= 47;
   console.log("Attack Points:", attackPoints);
   console.log("Health Points:", healthPoints);
-  $("#ap-meter.value").val(attackPoints);
-  $("#hp-meter.value").val(healthPoints);
-  deadMushroom(healthPoints);
-  mushroomWins(attackPoints);
+  renderResult();
 }
 
 function starFire(event) {
@@ -57,22 +48,31 @@ function starFire(event) {
   healthPoints -= 25;
   console.log("Attack Points:", attackPoints);
   console.log("Health Points:", healthPoints);
-  $("#ap-meter.value").val(attackPoints);
-  $("#hp-meter.value").val(healthPoints);
-  deadMushroom(healthPoints);
-  mushroomWins(attackPoints);
+  renderResult();
 }
 
-function deadMushroom(healthPoints) {
+function renderResult() {
   if (healthPoints <= 0) {
-    $(".freaky-fungus").removeClass(".walk").addClass(".dead");
-    console.log("You win!");
+    healthPoints = 0;
   }
+  if (attackPoints <= 0) {
+    attackPoints = 0;
+  }
+  $("#ap-meter").val(attackPoints);
+  $(".ap-text").text(attackPoints);
+  $("#hp-meter").val(healthPoints);
+  $(".hp-text").text(healthPoints);
 }
 
-function mushroomWins(attackPoints) {
-  if (attackPoints <= 0) {
-    $(".freaky-fungus").removeClass(".walk").addClass(".jump");
-    console.log("Mushroom wins!");
-  }
-}
+// function deadMushroom(healthPoints) {
+//   if (healthPoints <= 0) {
+//     $(".freaky-fungus").removeClass(".walk").addClass(".dead");
+//     console.log("You win!");
+//   }
+// }
+
+// function mushroomWins(attackPoints) {
+//   if (attackPoints <= 0) {
+//     $(".freaky-fungus").removeClass(".walk").addClass(".jump");
+//     console.log("Mushroom wins!");
+//   }
